@@ -18,27 +18,34 @@ public class ImageGenerator {
 	}
 
 	public void generate() throws IOException {
-		int height, width, reste;
 		byte[] data = codeCovertor.getBytes();
+		int imageSize = getImageSize(data.length);
 		
-		System.out.println(data.length);
-		
-		height = data.length / 6;
-		width = data.length / 6;
-		reste = data.length % 6;
-		
-		BufferedImage image = new BufferedImage(200, 200, BufferedImage.TYPE_INT_RGB);
-		image.getRaster().setPixels(0, 0, 35197, 35198, generateImage(300, 300, data));
+		BufferedImage image = new BufferedImage(imageSize, imageSize, BufferedImage.TYPE_INT_RGB);
+		image.getRaster().setPixels(0, 0, imageSize, imageSize, getRVGData(imageSize*imageSize*3, data));
 		ImageIO.write(image, "BMP", new File(imageName + ".bmp"));
 	}
 	
-	public int[] generateImage(int height, int width, byte[] data) {
-		int[] flattenedData = new int[data.length];
+	private int[] getRVGData(int dataSize, byte[] data) {
+		int[] flattenedData = new int[dataSize];
 		
-		for(int i = 0; i < data.length; i++) {
-			flattenedData[i] = data[i];
+		for(int i = 0; i < dataSize; i++) {
+			if(i + 1 > data.length) {
+				flattenedData[i] = 0;
+			} else {
+				flattenedData[i] = data[i];
+			}
 		}
 		
 		return flattenedData;
+	}
+	
+	private int getImageSize(int nbByte) {
+		int nbRVB = (nbByte / 3) + (nbByte % 3 > 0 ? 1 : 0);
+		int imageSize = (int) Math.sqrt(nbRVB);
+		if((imageSize * imageSize) < nbRVB) {
+			imageSize ++;
+		}
+		return imageSize;
 	}
 }
