@@ -1,16 +1,28 @@
 import java.io.IOException;
 
-import imagegenerator.ImageGenerator;
-import reader.CodeToBytes;
-import reader.JarToBytes;
+import reader.FileToBytes;
+import reader.ImageRGBToBytes;
+import reader.ToBytes;
+import writer.FileGenerator;
+import writer.Generator;
+import writer.Generator.Extension;
+import writer.ImageGenerator;
 
 public class Main {
 
 	public static void main(String[] args) {
-		CodeToBytes coder = new JarToBytes("ressources/com.google.gson_2.2.4.v201311231704.jar");
-		ImageGenerator generator = new ImageGenerator(coder, "ressources/generated/1");
+		ToBytes coder = new FileToBytes("ressources/test.txt");
+		Generator generator = new ImageGenerator(coder, "ressources/generated/image/test");
 		try {
-			generator.generate();
+			generator.generate(Extension.BMP);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		ImageRGBToBytes convertor = new ImageRGBToBytes("ressources/generated/image/test.bmp");
+		generator = new FileGenerator(convertor, "ressources/generated/code/test");
+		try {
+			generator.generate(Extension.TXT);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

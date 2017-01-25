@@ -1,4 +1,4 @@
-package imagegenerator;
+package writer;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -6,24 +6,22 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import reader.CodeToBytes;
+import reader.ToBytes;
 
-public class ImageGenerator {
-	private CodeToBytes codeCovertor;
-	private String imageName;
+public class ImageGenerator extends Generator {
 
-	public ImageGenerator(CodeToBytes codeCovertor, String imageName) {
-		this.codeCovertor = codeCovertor;
-		this.imageName = imageName;
+	public ImageGenerator(ToBytes codeCovertor, String imagePath) {
+		super(codeCovertor, imagePath);
 	}
 
-	public void generate() throws IOException {
-		byte[] data = codeCovertor.getBytes();
+	@Override
+	public void generate(Extension e) throws IOException {
+		byte[] data = covertor.getBytes();
 		int imageSize = getImageSize(data.length);
 		
 		BufferedImage image = new BufferedImage(imageSize, imageSize, BufferedImage.TYPE_INT_RGB);
 		image.getRaster().setPixels(0, 0, imageSize, imageSize, getRVGData(imageSize*imageSize*3, data));
-		ImageIO.write(image, "BMP", new File(imageName + ".bmp"));
+		ImageIO.write(image, e.getFormatName(), new File(imagePath + e.getExtension()));
 	}
 	
 	private int[] getRVGData(int dataSize, byte[] data) {
