@@ -13,8 +13,8 @@ public class FileGenerator extends Generator {
 
 	@Override
 	public void generate(Extension e) throws IOException {
-		FileOutputStream fos = new FileOutputStream(imagePath + e.getExtension());
-		fos.write(covertor.getBytes());
+		FileOutputStream fos = new FileOutputStream(targetFolder + fileName + e.getExtension());
+		fos.write(convertor.getBytes());
 		fos.close();
 	}
 

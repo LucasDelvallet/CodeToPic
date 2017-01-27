@@ -31,7 +31,7 @@ public class SVGGenerator extends Generator {
 
 	@Override
 	public void generate(Extension e) throws IOException {
-		byte[] data = covertor.getBytes();
+		byte[] data = convertor.getBytes();
 		int imageSize = getImageSize(data.length);
 		
 		SVGDocument doc = createSVGDocument();
@@ -42,14 +42,14 @@ public class SVGGenerator extends Generator {
 		 * 
 		 * Grosse boucle qui prendrait les bytes 4 par 4.
 		 * Chaque byte peut prendre 256 valeurs du coup l'image serait de 256x256
-		 * Le premier byte donne la forme (parmi 256 formes ça sera peut-être chaud par contre)
+		 * Le premier byte donne la forme (parmi 256 formes ï¿½a sera peut-ï¿½tre chaud par contre)
 		 * Le second byte donne la position en x
-		 * Le troisième byte donne la position en y
-		 * Le quatrième byte donne la couleur (on programmerait 256 couleurs possibles)
+		 * Le troisiï¿½me byte donne la position en y
+		 * Le quatriï¿½me byte donne la couleur (on programmerait 256 couleurs possibles)
 		 * 
-		 * Et s'il n'y a pas un multiple de 4, on remplit les dernières valeurs par des bytes à 0
+		 * Et s'il n'y a pas un multiple de 4, on remplit les derniï¿½res valeurs par des bytes ï¿½ 0
 		 * 
-		 * Vu que c'est un svg, le process inverse devrait être possible.
+		 * Vu que c'est un svg, le process inverse devrait ï¿½tre possible.
 		 * 
 		 */
 		

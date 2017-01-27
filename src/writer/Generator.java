@@ -1,6 +1,8 @@
 package writer;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 
 import reader.ToBytes;
 
@@ -23,12 +25,13 @@ public abstract class Generator {
 			return extension;
 		}
 	}
-	protected ToBytes covertor;
-	protected String imagePath;
+	protected ToBytes convertor;
+	protected String targetFolder, fileName;
 
-	public Generator(ToBytes covertor, String imagePath) {
-		this.covertor = covertor;
-		this.imagePath = imagePath;
+	public Generator(ToBytes convertor, String targetFolder) {
+		this.convertor = convertor;
+		this.targetFolder = targetFolder;
+		this.fileName = new File(convertor.getPath()).getName().replaceFirst("[.][^.]+$", "");
 	}
 	
 	public abstract void generate(Extension e) throws IOException;
