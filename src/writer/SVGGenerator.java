@@ -2,8 +2,6 @@ package writer;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Shape;
-import java.awt.geom.Ellipse2D;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -13,7 +11,6 @@ import java.io.Writer;
 import org.apache.batik.anim.dom.SVGDOMImplementation;
 import org.apache.batik.svggen.SVGGraphics2D;
 import org.w3c.dom.DOMImplementation;
-import org.w3c.dom.Element;
 import org.w3c.dom.svg.SVGDocument;
 
 import reader.ToBytes;
@@ -41,23 +38,19 @@ public class SVGGenerator extends Generator {
 		
 		g.setSVGCanvasSize(new Dimension(256, 256));
 		
-		int rest = data.length % 8;
+		int rest = data.length % 6;
 		
-		for(int i=0; i<data.length-rest; i+=8) {
+		for(int i=0; i<data.length-rest; i+=6) {
 			int data1 = data[i]+128;
 			int data2 = data[i+1]+128;
 			int data3 = data[i+2]+128;
-			int data4 = data[i+3]+128;
-			int data5 = data[i+4]+128;
+			int data4 = data[i+3];
+			int data5 = data[i+4];
 			int data6 = data[i+5]+128;
-			int data7 = data[i+6]+128;
-			int data8 = data[i+7]+128;
-			
-			Shape circle = new Ellipse2D.Double(data1, data2, data3, data4);
-			Color c = new Color(data5, data6, data7, data8);
 
-			g.setPaint(c);
-			g.fill(circle);
+			Color c = new Color(data1, data2, data3);
+			g.setColor(c);
+			g.fillOval(data4, data5, data6, data6);
 		}
 		
 	    // Save SVG as file
