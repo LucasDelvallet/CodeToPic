@@ -1,17 +1,19 @@
 package writer;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.io.FileOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.io.Writer;
 
 import org.apache.batik.anim.dom.SVGDOMImplementation;
-import org.apache.batik.svggen.SVGGraphics2D;
+import org.apache.batik.transcoder.TranscoderException;
+import org.apache.batik.transcoder.TranscoderInput;
+import org.apache.batik.transcoder.TranscoderOutput;
+import org.apache.batik.transcoder.svg2svg.SVGTranscoder;
+import org.apache.commons.io.FileUtils;
 import org.w3c.dom.DOMImplementation;
-import org.w3c.dom.svg.SVGDocument;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 import reader.ToBytes;
 
@@ -30,15 +32,17 @@ public class SVGGenerator extends Generator {
 
 	@Override
 	public void generate(Extension e) throws IOException {
+		System.out.print("Generating SVG document...");
+		
 		byte[] data = convertor.getBytes();
-		int imageSize = getImageSize(data.length);
 		
-		SVGDocument doc = createSVGDocument();
-		SVGGraphics2D g = new SVGGraphics2D(doc);
-		
-		g.setSVGCanvasSize(new Dimension(256, 256));
+		Document doc = createSVGDocument();
+		Element root = doc.getDocumentElement();
+		root.setAttributeNS(null, "width", "256");
+        root.setAttributeNS(null, "height", "256");
 		
 		int rest = data.length % 6;
+		String svgNS = SVGDOMImplementation.SVG_NAMESPACE_URI;
 		
 		for(int i=0; i<data.length-rest; i+=6) {
 			int data1 = data[i]+128;
@@ -48,34 +52,47 @@ public class SVGGenerator extends Generator {
 			int data5 = data[i+4];
 			int data6 = data[i+5]+128;
 
-			Color c = new Color(data1, data2, data3);
-			g.setColor(c);
-			g.fillOval(data4, data5, data6, data6);
+			Element element;
+			element = doc.createElementNS(svgNS, "circle");
+			element.setAttributeNS(null, "cx", String.valueOf(data4));
+			element.setAttributeNS(null, "cy", String.valueOf(data5));
+			element.setAttributeNS(null, "r", String.valueOf((float)data6/4));
+			element.setAttributeNS(null, "fill", "rgb("+ data1 +","+ data2 +","+ data3 + ")");
+			root.appendChild(element);
 		}
 		
-	    // Save SVG as file
-	    OutputStream outputStream = new FileOutputStream(targetFolder + "file.svg");
-		Writer out = new OutputStreamWriter(outputStream, "UTF-8");
-		g.stream(out, true);
-		outputStream.flush();
-		outputStream.close();
+	    saveFile(doc);
 		
-		System.out.println("Done !");
+		System.out.println(" Done !");
 	}
 	
-	private SVGDocument createSVGDocument() {
+	private void saveFile(Document doc) throws IOException {
+	  try {
+	        //Determine output type:
+	        SVGTranscoder t = new SVGTranscoder();
+
+	        //Set transcoder input/output
+	        TranscoderInput input = new TranscoderInput(doc);
+	        ByteArrayOutputStream bytestream = new ByteArrayOutputStream();
+	        OutputStreamWriter ostream = new OutputStreamWriter(bytestream);
+	        TranscoderOutput output = new TranscoderOutput(ostream);
+
+	        //Perform transcoding
+	        t.transcode(input, output);
+	        ostream.flush();
+	        ostream.close();
+	        
+	        FileUtils.writeByteArrayToFile(new File(targetFolder + "file.svg"), bytestream.toByteArray());
+
+	    } catch (IOException | TranscoderException e) {
+	        e.printStackTrace();
+	    }
+	}
+	
+	private Document createSVGDocument() {
 		// Create an SVG document.
 	    DOMImplementation impl = SVGDOMImplementation.getDOMImplementation();
 	    String svgNS = SVGDOMImplementation.SVG_NAMESPACE_URI;
-	    return (SVGDocument) impl.createDocument(svgNS, "svg", null);
-	}
-	
-	private int getImageSize(int nbByte) {
-		int nbRVB = (nbByte / 3) + (nbByte % 3 > 0 ? 1 : 0);
-		int imageSize = (int) Math.sqrt(nbRVB);
-		if((imageSize * imageSize) < nbRVB) {
-			imageSize ++;
-		}
-		return imageSize;
+	    return impl.createDocument(svgNS, "svg", null);
 	}
 }
