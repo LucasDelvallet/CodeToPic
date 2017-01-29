@@ -61,6 +61,15 @@ public class SVGGenerator extends Generator {
 			root.appendChild(element);
 		}
 		
+		Element element;
+		element = doc.createElementNS(svgNS, "g");
+		for(int i=0; i<rest; i++){
+			String end = "end";
+			for(int j=0; j<i; j++) end += "end";
+			element.setAttributeNS(null, end, String.valueOf(data[i+(data.length-rest)]));			
+		}
+		root.appendChild(element);		
+		
 	    saveFile(doc);
 		
 		System.out.println(" Done !");
