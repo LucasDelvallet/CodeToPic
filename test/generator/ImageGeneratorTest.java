@@ -28,6 +28,9 @@ public class ImageGeneratorTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		new File(DESTINATION_FOLDER_CODE).mkdirs();
+		new File(DESTINATION_FOLDER_IMAGE).mkdirs();
+		
 		PrintWriter writer = new PrintWriter(ORIGINE_FILE, "UTF-8");
 
 		for (int i = 0; i < 5; i++) {
