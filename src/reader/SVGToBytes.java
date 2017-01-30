@@ -57,11 +57,13 @@ public class SVGToBytes extends ToBytes {
 			// Recuperation des bytes du parametre cx
 			String cx = namedNodeMap.getNamedItem("cx").toString();
 			int i_cx = Integer.parseInt(cx.replaceAll("[^\\d.]", ""));
+			i_cx-=128;
 			bytes = concatByteArrays(bytes, intToBytes(i_cx));
 			
 			// Recuperation des bytes du parametre cy
 			String cy = namedNodeMap.getNamedItem("cy").toString();			
 			int i_cy = Integer.parseInt(cy.replaceAll("[^\\d.]", ""));
+			i_cy-=128;
 			bytes = concatByteArrays(bytes,  intToBytes(i_cy));
 			
 			// Recuperation des bytes du parametre r

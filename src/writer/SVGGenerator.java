@@ -48,8 +48,8 @@ public class SVGGenerator extends Generator {
 			int data1 = data[i]+128;
 			int data2 = data[i+1]+128;
 			int data3 = data[i+2]+128;
-			int data4 = data[i+3];
-			int data5 = data[i+4];
+			int data4 = data[i+3]+128;
+			int data5 = data[i+4]+128;
 			int data6 = data[i+5]+128;
 
 			Element element;
@@ -91,7 +91,7 @@ public class SVGGenerator extends Generator {
 	        ostream.flush();
 	        ostream.close();
 	        
-	        FileUtils.writeByteArrayToFile(new File(targetFolder + "file.svg"), bytestream.toByteArray());
+	        FileUtils.writeByteArrayToFile(new File(targetFolder + fileName + ".svg"), bytestream.toByteArray());
 
 	    } catch (IOException | TranscoderException e) {
 	        e.printStackTrace();
