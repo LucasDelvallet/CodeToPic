@@ -2,7 +2,6 @@ package writer;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Paths;
 
 import reader.ToBytes;
 

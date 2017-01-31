@@ -22,17 +22,15 @@ import writer.Generator;
 
 public abstract class CircleViewGenerator extends Generator implements IHierarchyView {
 	private ArrayList<IHierarchyView> children;
-	protected int numberOfLineCode;
 
 	public CircleViewGenerator(ToBytes convertor, String targetFolder) {
 		super(convertor, targetFolder);
 		children = new ArrayList<>();
-		numberOfLineCode = 0;
 	}
 
 	@Override
 	public void generate(Extension e) throws IOException {
-		String diameter = Integer.toString(getNumberOfLines());
+		String diameter = Integer.toString(getRecursiveNumberOfLines());
 		Document doc = createSVGDocument();
 		Element root = doc.getDocumentElement();
 		root.setAttributeNS(null, "width", diameter);
@@ -43,7 +41,7 @@ public abstract class CircleViewGenerator extends Generator implements IHierarch
 	
 	@Override
 	public void addSVGElement(Element root, Document doc, double deltaY, double deltaX) {
-		double rayon = getNumberOfLines() / (double)2;
+		double rayon = getRecursiveNumberOfLines() / (double)2;
 		
 		Element element;
 		element = doc.createElementNS(SVGDOMImplementation.SVG_NAMESPACE_URI, "circle");
@@ -58,8 +56,8 @@ public abstract class CircleViewGenerator extends Generator implements IHierarch
 		
 		int childDeltaX = 0;
 		for(IHierarchyView c : children) {
-			c.addSVGElement(root, doc, rayon - (c.getNumberOfLines()/2), deltaX + childDeltaX);
-			childDeltaX += c.getNumberOfLines();
+			c.addSVGElement(root, doc, rayon - (c.getRecursiveNumberOfLines()/2), deltaX + childDeltaX);
+			childDeltaX += c.getRecursiveNumberOfLines();
 		}
 	}
 	
@@ -69,12 +67,12 @@ public abstract class CircleViewGenerator extends Generator implements IHierarch
 	}
 	
 	@Override
-	public int getNumberOfLines() {
+	public int getRecursiveNumberOfLines() {
 		int childrenSize = 0;
 		for(IHierarchyView c : children) {
-			childrenSize += c.getNumberOfLines();
+			childrenSize += c.getRecursiveNumberOfLines();
 		}
-		return childrenSize + numberOfLineCode;
+		return childrenSize + getNumberOfLines();
 	}
 
 	private void saveFile(Document doc) throws IOException {

@@ -7,7 +7,6 @@ public class MethodeCircleViewGenerator extends CircleViewGenerator implements I
 
 	public MethodeCircleViewGenerator(ToBytes convertor, String targetFolder) {
 		super(convertor, targetFolder);
-		numberOfLineCode = 25;
 	}
 
 	@Override
@@ -18,6 +17,11 @@ public class MethodeCircleViewGenerator extends CircleViewGenerator implements I
 	@Override
 	public RGB getCodeColor() {
 		return new RGB(255, 0, 255);
+	}
+
+	@Override
+	public int getNumberOfLines() {
+		return 0;
 	}
 
 }

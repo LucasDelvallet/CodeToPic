@@ -19,4 +19,9 @@ public class ProjectCircleViewGenerator extends CircleViewGenerator {
 		return new RGB(0, 255, 0);
 	}
 
+	@Override
+	public int getNumberOfLines() {
+		return 0;
+	}
+
 }
