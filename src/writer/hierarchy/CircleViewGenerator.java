@@ -22,10 +22,12 @@ import writer.Generator;
 
 public abstract class CircleViewGenerator extends Generator implements IHierarchyView {
 	private ArrayList<IHierarchyView> children;
+	protected int numberOfLineCode;
 
 	public CircleViewGenerator(ToBytes convertor, String targetFolder) {
 		super(convertor, targetFolder);
 		children = new ArrayList<>();
+		numberOfLineCode = 0;
 	}
 
 	@Override
@@ -65,6 +67,15 @@ public abstract class CircleViewGenerator extends Generator implements IHierarch
 	public void addChild(IHierarchyView view) {
 		children.add(view);
 	}
+	
+	@Override
+	public int getNumberOfLines() {
+		int childrenSize = 0;
+		for(IHierarchyView c : children) {
+			childrenSize += c.getNumberOfLines();
+		}
+		return childrenSize + numberOfLineCode;
+	}
 
 	private void saveFile(Document doc) throws IOException {
 		try {
@@ -95,4 +106,6 @@ public abstract class CircleViewGenerator extends Generator implements IHierarch
 		String svgNS = SVGDOMImplementation.SVG_NAMESPACE_URI;
 		return impl.createDocument(svgNS, "svg", null);
 	}
+	
+	
 }
