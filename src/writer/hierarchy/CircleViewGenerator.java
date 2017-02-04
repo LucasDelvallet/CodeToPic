@@ -16,17 +16,25 @@ import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import com.github.javaparser.ast.CompilationUnit;
+
 import reader.ToBytes;
 import util.RGB;
 import writer.Generator;
+import writer.hierarchy.visitors.LevelVisitor;
 
-public abstract class CircleViewGenerator extends Generator implements IHierarchyView {
+public abstract class CircleViewGenerator<V extends LevelVisitor> extends Generator implements IHierarchyView {
 	private ArrayList<IHierarchyView> children;
+	protected V levelVisitor;
 
-	public CircleViewGenerator(ToBytes convertor, String targetFolder) {
+	public CircleViewGenerator(ToBytes convertor, String targetFolder, CompilationUnit cu) {
 		super(convertor, targetFolder);
 		children = new ArrayList<>();
+		levelVisitor = createLevelVisitor(cu);
+		levelVisitor.init();
 	}
+	
+	public abstract V createLevelVisitor(CompilationUnit cu);
 
 	@Override
 	public void generate(Extension e) throws IOException {

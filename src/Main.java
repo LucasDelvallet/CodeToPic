@@ -1,4 +1,8 @@
+import java.io.FileInputStream;
 import java.io.IOException;
+
+import com.github.javaparser.JavaParser;
+import com.github.javaparser.ast.CompilationUnit;
 
 import reader.FileToBytes;
 import reader.ToBytes;
@@ -8,8 +12,11 @@ import writer.hierarchy.ClassCircleViewGenerator;
 public class Main {
 
 	public static void main(String[] args) throws Exception {
-		ToBytes coder = new FileToBytes("ressources/Test.java");
-		CircleViewGenerator generator = new ClassCircleViewGenerator(coder, "target/image");
+		String path = "ressources/Test.java";
+		FileInputStream in = new FileInputStream(path);
+		CompilationUnit cu = JavaParser.parse(in);
+		ToBytes coder = new FileToBytes(path);
+		CircleViewGenerator generator = new ClassCircleViewGenerator(coder, "target/image", cu);
 		try {
 			generator.generate(null);
 		} catch (IOException e) {
