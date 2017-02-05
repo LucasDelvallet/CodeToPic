@@ -7,7 +7,7 @@ import com.github.javaparser.ast.CompilationUnit;
 import reader.FileToBytes;
 import reader.ToBytes;
 import writer.hierarchy.CircleViewGenerator;
-import writer.hierarchy.ClassCircleViewGenerator;
+import writer.hierarchy.GeneratorBuilder;
 
 public class Main {
 
@@ -16,7 +16,7 @@ public class Main {
 		FileInputStream in = new FileInputStream(path);
 		CompilationUnit cu = JavaParser.parse(in);
 		ToBytes coder = new FileToBytes(path);
-		CircleViewGenerator generator = new ClassCircleViewGenerator(coder, "target/image", cu);
+		CircleViewGenerator generator = GeneratorBuilder.getFileGenerator(path, coder, "target/image", cu);
 		try {
 			generator.generate(null);
 		} catch (IOException e) {

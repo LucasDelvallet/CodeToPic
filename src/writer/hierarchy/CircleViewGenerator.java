@@ -23,22 +23,17 @@ import util.RGB;
 import writer.Generator;
 import writer.hierarchy.visitors.LevelVisitor;
 
-public abstract class CircleViewGenerator<V extends LevelVisitor> extends Generator implements IHierarchyView {
+public abstract class CircleViewGenerator extends Generator implements IHierarchyView {
 	private ArrayList<IHierarchyView> children;
-	protected V levelVisitor;
 
-	public CircleViewGenerator(ToBytes convertor, String targetFolder, CompilationUnit cu) {
+	public CircleViewGenerator(ToBytes convertor, String targetFolder) {
 		super(convertor, targetFolder);
 		children = new ArrayList<>();
-		levelVisitor = createLevelVisitor(cu);
-		levelVisitor.init();
 	}
 	
-	public abstract V createLevelVisitor(CompilationUnit cu);
-
 	@Override
 	public void generate(Extension e) throws IOException {
-		String diameter = Integer.toString(getRecursiveNumberOfLines());
+		String diameter = Integer.toString(getNumberOfLines());
 		Document doc = createSVGDocument();
 		Element root = doc.getDocumentElement();
 		root.setAttributeNS(null, "width", diameter);
@@ -49,7 +44,7 @@ public abstract class CircleViewGenerator<V extends LevelVisitor> extends Genera
 	
 	@Override
 	public void addSVGElement(Element root, Document doc, double deltaY, double deltaX) {
-		double rayon = getRecursiveNumberOfLines() / (double)2;
+		double rayon = getNumberOfLines() / (double)2;
 		
 		Element element;
 		element = doc.createElementNS(SVGDOMImplementation.SVG_NAMESPACE_URI, "circle");

@@ -8,8 +8,8 @@ import writer.hierarchy.visitors.LevelVisitor;
 
 public class ProjectCircleViewGenerator extends CircleViewGenerator {
 
-	public ProjectCircleViewGenerator(ToBytes convertor, String targetFolder, CompilationUnit cu) {
-		super(convertor, targetFolder, cu);
+	public ProjectCircleViewGenerator(ToBytes convertor, String targetFolder) {
+		super(convertor, targetFolder);
 	}
 	
 	@Override
@@ -25,12 +25,6 @@ public class ProjectCircleViewGenerator extends CircleViewGenerator {
 	@Override
 	public int getNumberOfLines() {
 		return 0;
-	}
-
-	@Override
-	public LevelVisitor createLevelVisitor(CompilationUnit cu) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

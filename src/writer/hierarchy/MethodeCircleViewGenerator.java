@@ -1,15 +1,15 @@
 package writer.hierarchy;
 
-import com.github.javaparser.ast.CompilationUnit;
-
 import reader.ToBytes;
 import util.RGB;
-import writer.hierarchy.visitors.LevelVisitor;
+import writer.hierarchy.visitors.metrics.MethodMetric;
 
 public class MethodeCircleViewGenerator extends CircleViewGenerator implements IHierarchyView {
+	private MethodMetric metric;
 
-	public MethodeCircleViewGenerator(ToBytes convertor, String targetFolder, CompilationUnit cu) {
-		super(convertor, targetFolder, cu);
+	public MethodeCircleViewGenerator(ToBytes convertor, String targetFolder, MethodMetric metric) {
+		super(convertor, targetFolder);
+		this.metric = metric;
 	}
 
 	@Override
@@ -24,13 +24,7 @@ public class MethodeCircleViewGenerator extends CircleViewGenerator implements I
 
 	@Override
 	public int getNumberOfLines() {
-		return 0;
-	}
-
-	@Override
-	public LevelVisitor createLevelVisitor(CompilationUnit cu) {
-		// TODO Auto-generated method stub
-		return null;
+		return metric.getNumberOfLine();
 	}
 
 }
