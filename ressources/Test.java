@@ -34,7 +34,7 @@ public class Test {
 		return 10;
 	}
 	
-	public int useless2() {
+	public int useless2(int c, int d, int e, int f, int g, int h) {
 		int c = 0;
 		c++;
 		c--;

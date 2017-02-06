@@ -1,7 +1,15 @@
 package writer.hierarchy.visitors.metrics;
 
 public class MethodMetric {
-	int numberOfLine, cyclomaticComplexity;
+	int numberOfLine, cyclomaticComplexity, nbOfParameters;
+
+	public int getNbOfParameters() {
+		return nbOfParameters;
+	}
+
+	public void setNbOfParameters(int nbOfParameters) {
+		this.nbOfParameters = nbOfParameters;
+	}
 
 	public int getNumberOfLine() {
 		return numberOfLine;
