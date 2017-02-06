@@ -16,12 +16,9 @@ import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import com.github.javaparser.ast.CompilationUnit;
-
 import reader.ToBytes;
 import util.RGB;
 import writer.Generator;
-import writer.hierarchy.visitors.LevelVisitor;
 
 public abstract class CircleViewGenerator extends Generator implements IHierarchyView {
 	private ArrayList<IHierarchyView> children;
@@ -33,7 +30,7 @@ public abstract class CircleViewGenerator extends Generator implements IHierarch
 	
 	@Override
 	public void generate(Extension e) throws IOException {
-		String diameter = Integer.toString(getNumberOfLines());
+		String diameter = Integer.toString(getRecursiveNumberOfLines());
 		Document doc = createSVGDocument();
 		Element root = doc.getDocumentElement();
 		root.setAttributeNS(null, "width", diameter);
@@ -44,7 +41,7 @@ public abstract class CircleViewGenerator extends Generator implements IHierarch
 	
 	@Override
 	public void addSVGElement(Element root, Document doc, double deltaY, double deltaX) {
-		double rayon = getNumberOfLines() / (double)2;
+		double rayon = getRecursiveNumberOfLines() / (double)2;
 		
 		Element element;
 		element = doc.createElementNS(SVGDOMImplementation.SVG_NAMESPACE_URI, "circle");
@@ -59,7 +56,7 @@ public abstract class CircleViewGenerator extends Generator implements IHierarch
 		
 		int childDeltaX = 0;
 		for(IHierarchyView c : children) {
-			c.addSVGElement(root, doc, rayon - (c.getRecursiveNumberOfLines()/2), deltaX + childDeltaX);
+			c.addSVGElement(root, doc, rayon - (c.getRecursiveNumberOfLines()/2) + deltaY, deltaX + childDeltaX);
 			childDeltaX += c.getRecursiveNumberOfLines();
 		}
 	}
