@@ -58,6 +58,7 @@ public class ClassLevelVisitor extends LevelVisitor {
 		MethodMetric mMetric = new MethodMetric();
 		mMetric.setNumberOfLine(arg0.getEnd().get().line - arg0.getBegin().get().line);
 		super.visit(arg0, arg1);
+		System.out.println("Cyclo : " + cyclomaticMethodCounter);
 		mMetric.setCyclomaticComplexity(cyclomaticMethodCounter);		
 		methodsMetric.add(mMetric);
 	}

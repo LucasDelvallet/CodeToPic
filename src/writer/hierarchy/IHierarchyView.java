@@ -7,8 +7,8 @@ import util.RGB;
 
 public interface IHierarchyView {
 	public void addChild(IHierarchyView view);
-	public RGB getNameColor();
-	public RGB getCodeColor();
+	public RGB getStrokeColor();
+	public RGB getBackgroundColor();
 	public int getRecursiveNumberOfLines();
 	public int getNumberOfLines();
 	public void addSVGElement(Element root, Document doc, double deltaY, double deltaX);

@@ -8,7 +8,29 @@ public class Test {
 		val = 0;
 	}
 	
-	public int useless() {
+	public int useless(int c) {
+		if(c>10) {
+			if(c < 100) {
+				return 2;
+			} else {
+				return 3;
+			}
+			while(c<100) {
+				c++;
+			}
+			return 0;
+		}
+		if(c>10) {
+			if(c < 100) {
+				return 2;
+			} else {
+				return 3;
+			}
+			while(c<100) {
+				c++;
+			}
+			return 0;
+		}
 		return 10;
 	}
 	

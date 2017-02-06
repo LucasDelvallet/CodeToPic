@@ -13,12 +13,16 @@ public class MethodeCircleViewGenerator extends CircleViewGenerator implements I
 	}
 
 	@Override
-	public RGB getNameColor() {
-		return new RGB(128, 128, 128);
+	public RGB getStrokeColor() {
+		int red = (int)(metric.getCyclomaticComplexity() * 25.5f);
+		if(red > 255) {
+			red = 255;
+		}
+		return new RGB(red, 255-red, 0);
 	}
 
 	@Override
-	public RGB getCodeColor() {
+	public RGB getBackgroundColor() {
 		return new RGB(255, 0, 255);
 	}
 

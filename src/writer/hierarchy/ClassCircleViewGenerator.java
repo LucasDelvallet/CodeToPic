@@ -20,7 +20,7 @@ public class ClassCircleViewGenerator extends CircleViewGenerator implements IHi
 	}
 
 	@Override
-	public RGB getNameColor() {
+	public RGB getStrokeColor() {
 		MessageDigest digest;
 		int red = 0, green = 0, blue = 0;
 		try {
@@ -37,7 +37,7 @@ public class ClassCircleViewGenerator extends CircleViewGenerator implements IHi
 	}
 
 	@Override
-	public RGB getCodeColor() {
+	public RGB getBackgroundColor() {
 		int red, green;
 		red = (int)((metric.getNumberOfVariableDeclaration() / (float)metric.getNumberOfLine()) * 255);
 		green = (int)((metric.getNumberOfMethode() / (float) metric.getNumberOfLine()) * 255);

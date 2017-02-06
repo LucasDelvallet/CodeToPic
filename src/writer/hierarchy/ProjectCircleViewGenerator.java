@@ -13,12 +13,12 @@ public class ProjectCircleViewGenerator extends CircleViewGenerator {
 	}
 	
 	@Override
-	public RGB getNameColor() {
+	public RGB getStrokeColor() {
 		return new RGB(255, 0, 0);
 	}
 	
 	@Override
-	public RGB getCodeColor() {
+	public RGB getBackgroundColor() {
 		return new RGB(0, 255, 0);
 	}
 

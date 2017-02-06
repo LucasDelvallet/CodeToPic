@@ -51,9 +51,9 @@ public abstract class CircleViewGenerator extends Generator implements IHierarch
 		element.setAttributeNS(null, "cx", Double.toString(rayon + deltaX));
 		element.setAttributeNS(null, "cy", Double.toString(rayon + deltaY));
 		element.setAttributeNS(null, "r", Double.toString(rayon));
-		RGB fill = getCodeColor();
+		RGB fill = getBackgroundColor();
 		element.setAttributeNS(null, "fill", "rgb("+ fill.getRed() +","+ fill.getGreen() +","+ fill.getBlue() + ")");
-		RGB stroke = getNameColor();
+		RGB stroke = getStrokeColor();
 		element.setAttributeNS(null, "stroke", "rgb("+ stroke.getRed() +","+ stroke.getGreen() +","+ stroke.getBlue() + ")");
 		root.appendChild(element);
 		
