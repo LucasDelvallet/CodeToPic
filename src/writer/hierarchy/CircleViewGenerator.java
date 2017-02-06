@@ -21,7 +21,7 @@ import util.RGB;
 import writer.Generator;
 
 public abstract class CircleViewGenerator extends Generator implements IHierarchyView {
-	private ArrayList<IHierarchyView> children;
+	protected ArrayList<IHierarchyView> children;
 
 	public CircleViewGenerator(ToBytes convertor, String targetFolder) {
 		super(convertor, targetFolder);

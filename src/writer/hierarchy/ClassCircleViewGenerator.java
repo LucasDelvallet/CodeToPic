@@ -46,7 +46,11 @@ public class ClassCircleViewGenerator extends CircleViewGenerator implements IHi
 
 	@Override
 	public int getNumberOfLines() {
-		return metric.getNumberOfLine();
+		int childrenSize = 0;
+		for(IHierarchyView child : children) {
+			childrenSize += child.getNumberOfLines();
+		}
+		return metric.getNumberOfLine() - childrenSize;
 	}
 
 }
