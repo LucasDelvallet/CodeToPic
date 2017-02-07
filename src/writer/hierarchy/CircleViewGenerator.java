@@ -12,6 +12,7 @@ import org.apache.batik.transcoder.TranscoderInput;
 import org.apache.batik.transcoder.TranscoderOutput;
 import org.apache.batik.transcoder.svg2svg.SVGTranscoder;
 import org.apache.commons.io.FileUtils;
+import org.w3c.dom.CDATASection;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -52,7 +53,6 @@ public abstract class CircleViewGenerator extends Generator implements IHierarch
 		elementID ++;
 		
 		addCircle(root, doc, elementID+"", rayon + deltaX, rayon + deltaY, rayon, getBackgroundColor(), getStrokeColor());
-		//addLabelOnHover(root, doc, elementID + "", getName());
 		
 		int childDeltaX = 0;
 		for(IHierarchyView c : children) {
@@ -90,29 +90,6 @@ public abstract class CircleViewGenerator extends Generator implements IHierarch
 		root.appendChild(element);
 	}
 	
-	/*private void addLabelOnHover(Element root, Document doc, String id, String label) {
-		Element text, attibute;
-		text = doc.createElementNS(SVGDOMImplementation.SVG_NAMESPACE_URI, "text");
-		double x = Double.parseDouble(root.getAttribute("width"));
-		text.setAttributeNS(null, "x", Double.toString(x/2));
-		double y = Double.parseDouble(root.getAttribute("height"));
-		text.setAttributeNS(null, "y", Double.toString(y*9/10));
-		text.setAttributeNS(null, "font-size", "10");
-		text.setAttributeNS(null, "fill", "orange");
-		text.setAttributeNS(null, "visibility", "hidden");
-		text.setTextContent(label);
-		
-		attibute = doc.createElementNS(SVGDOMImplementation.SVG_NAMESPACE_URI, "set");
-		attibute.setAttributeNS(null, "attributeName", "visibility");
-		attibute.setAttributeNS(null, "from", "hidden");
-		attibute.setAttributeNS(null, "to", "visible");
-		attibute.setAttributeNS(null, "begin", id + ".mouseover");
-		attibute.setAttributeNS(null, "end", id + ".mouseout");
-		
-		text.appendChild(attibute);
-		root.appendChild(text);
-	}*/
-	
 	private void addStyle(Element root, Document doc) {
 		Element style = doc.createElementNS(SVGDOMImplementation.SVG_NAMESPACE_URI, "style");
 		style.setTextContent("circle:hover{opacity:0.7;} .tooltip{font-size: 12px;} .tooltip_bg{fill: white;stroke: black;stroke-width: 1;opacity: 0.85;}");
@@ -121,33 +98,33 @@ public abstract class CircleViewGenerator extends Generator implements IHierarch
 	
 	private void addScript(Element root, Document doc) {
 		Element script = doc.createElementNS(SVGDOMImplementation.SVG_NAMESPACE_URI, "script");
-		script.setAttributeNS(null, "type", "text/ecmascript");		
-		script.setTextContent("<![CDATA["+
-	  "function init(evt) {" +
-				"console.log('zicoin');"+
-	    "if ( window.svgDocument == null ) {"+
-	      "svgDocument = evt.target.ownerDocument;"+
-	    "}"+
-	    "tooltip = svgDocument.getElementById('tooltip');"+
-	    "tooltip_bg = svgDocument.getElementById('tooltip_bg');"+
-	  "}"+
-	"function ShowTooltip(evt) {"+
-	  "tooltip.setAttributeNS(null,\"x\",evt.clientX+12);"+
-	  "tooltip.setAttributeNS(null,\"y\",evt.clientY+28);"+
-	  "tooltip.setAttributeNS(null,\"visibility\",\"visible\");"+
-	  "tooltip.firstChild.data = evt.target.getAttributeNS(null,\"name\")"+
-	  "length = tooltip.getComputedTextLength();"+
-	  "tooltip_bg.setAttributeNS(null,\"width\",length+8);"+
-      "tooltip_bg.setAttributeNS(null,\"x\",evt.clientX+8);"+
-	  "tooltip_bg.setAttributeNS(null,\"y\",evt.clientY+16);"+
-	  "tooltip_bg.setAttributeNS(null,\"visibility\",\"visible\");"+
-	"}"+
-	"function HideTooltip() {"+
-	  "tooltip.setAttributeNS(null,\"visibility\",\"hidden\");"+
-	  "tooltip_bg.setAttributeNS(null,\"visibility\",\"hidden\");"+
-	"}"+
-	"]]>");
-				
+		script.setAttributeNS(null, "type", "text/ecmascript");	
+		
+		CDATASection s = doc.createCDATASection("function init(evt) {" +
+					"console.log('zicoin');"+
+					"if ( window.svgDocument == null ) {"+
+						"svgDocument = evt.target.ownerDocument;"+
+					"}"+
+					"tooltip = svgDocument.getElementById('tooltip');"+
+					"tooltip_bg = svgDocument.getElementById('tooltip_bg');"+
+				"}"+
+				"function ShowTooltip(evt) {"+
+					"tooltip.setAttributeNS(null,\"x\",evt.clientX+12);"+
+					"tooltip.setAttributeNS(null,\"y\",evt.clientY+28);"+
+					"tooltip.setAttributeNS(null,\"visibility\",\"visible\");"+
+					"tooltip.firstChild.data = evt.target.getAttributeNS(null,\"name\");"+
+					"length = tooltip.getComputedTextLength();"+
+					"tooltip_bg.setAttributeNS(null,\"width\",length+8);"+
+					"tooltip_bg.setAttributeNS(null,\"x\",evt.clientX+8);"+
+					"tooltip_bg.setAttributeNS(null,\"y\",evt.clientY+16);"+
+					"tooltip_bg.setAttributeNS(null,\"visibility\",\"visible\");"+
+				"}"+
+				"function HideTooltip() {"+
+					"tooltip.setAttributeNS(null,\"visibility\",\"hidden\");"+
+					"tooltip_bg.setAttributeNS(null,\"visibility\",\"hidden\");"+
+				"}");
+		
+		script.appendChild(s);
 		root.appendChild(script);
 	}
 
@@ -183,16 +160,16 @@ public abstract class CircleViewGenerator extends Generator implements IHierarch
 			// Set transcoder input/output
 			TranscoderInput input = new TranscoderInput(doc);
 			ByteArrayOutputStream bytestream = new ByteArrayOutputStream();
-			OutputStreamWriter ostream = new OutputStreamWriter(bytestream);
+			OutputStreamWriter ostream = new OutputStreamWriter(bytestream, "utf-8");
 			TranscoderOutput output = new TranscoderOutput(ostream);
-
+			
 			// Perform transcoding
 			t.transcode(input, output);
 			ostream.flush();
 			ostream.close();
-
+			
 			FileUtils.writeByteArrayToFile(new File(targetFolder + fileName + ".svg"), bytestream.toByteArray());
-
+			
 		} catch (IOException | TranscoderException e) {
 			e.printStackTrace();
 		}
