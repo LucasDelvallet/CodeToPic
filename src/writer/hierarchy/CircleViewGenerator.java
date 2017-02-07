@@ -101,7 +101,6 @@ public abstract class CircleViewGenerator extends Generator implements IHierarch
 		script.setAttributeNS(null, "type", "text/ecmascript");	
 		
 		CDATASection s = doc.createCDATASection("function init(evt) {" +
-					"console.log('zicoin');"+
 					"if ( window.svgDocument == null ) {"+
 						"svgDocument = evt.target.ownerDocument;"+
 					"}"+
@@ -109,14 +108,14 @@ public abstract class CircleViewGenerator extends Generator implements IHierarch
 					"tooltip_bg = svgDocument.getElementById('tooltip_bg');"+
 				"}"+
 				"function ShowTooltip(evt) {"+
-					"tooltip.setAttributeNS(null,\"x\",evt.clientX+12);"+
-					"tooltip.setAttributeNS(null,\"y\",evt.clientY+28);"+
+					"tooltip.setAttributeNS(null,\"x\",evt.clientX+12+window.pageXOffset);"+
+					"tooltip.setAttributeNS(null,\"y\",evt.clientY+28+window.pageYOffset);"+
 					"tooltip.setAttributeNS(null,\"visibility\",\"visible\");"+
 					"tooltip.firstChild.data = evt.target.getAttributeNS(null,\"name\");"+
 					"length = tooltip.getComputedTextLength();"+
 					"tooltip_bg.setAttributeNS(null,\"width\",length+8);"+
-					"tooltip_bg.setAttributeNS(null,\"x\",evt.clientX+8);"+
-					"tooltip_bg.setAttributeNS(null,\"y\",evt.clientY+16);"+
+					"tooltip_bg.setAttributeNS(null,\"x\",evt.clientX+8+window.pageXOffset);"+
+					"tooltip_bg.setAttributeNS(null,\"y\",evt.clientY+16+window.pageYOffset);"+
 					"tooltip_bg.setAttributeNS(null,\"visibility\",\"visible\");"+
 				"}"+
 				"function HideTooltip() {"+

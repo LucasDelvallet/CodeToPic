@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+
+import reader.FileToBytes;
 import reader.ToBytes;
 import writer.hierarchy.visitors.ClassLevelVisitor;
 import writer.hierarchy.visitors.metrics.ClassMetric;
@@ -21,7 +23,7 @@ public class GeneratorBuilder {
 	private static CircleViewGenerator getProjectGenerator(File file, ToBytes convertor, String targetFolder)
 			throws FileNotFoundException {
 		if (file.isDirectory()) {
-			CircleViewGenerator generator = new FolderCircleViewGenerator(convertor, targetFolder);
+			CircleViewGenerator generator = new FolderCircleViewGenerator(new FileToBytes(file.getAbsolutePath()), targetFolder);
 			File[] childs = file.listFiles();
 			
 			for(File child : childs) {
