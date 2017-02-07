@@ -13,8 +13,8 @@ import writer.hierarchy.visitors.metrics.MethodMetric;
 
 public class GeneratorBuilder {
 
-	public static CircleViewGenerator getProjectGenerator(String sourcePath, ToBytes convertor, String targetFolder) throws FileNotFoundException {
-		File file = new File(sourcePath);
+	public static CircleViewGenerator getProjectGenerator(String packagePath, ToBytes convertor, String targetFolder) throws FileNotFoundException {
+		File file = new File(packagePath);
 		return getProjectGenerator(file, convertor, targetFolder);
 	}
 
@@ -36,7 +36,7 @@ public class GeneratorBuilder {
 		}
 	}
 
-	private static CircleViewGenerator getFileGenerator(String filePath, ToBytes convertor, String targetFolder,
+	public static CircleViewGenerator getFileGenerator(String filePath, ToBytes convertor, String targetFolder,
 			CompilationUnit cu) {
 		ClassLevelVisitor visitor = new ClassLevelVisitor(cu);
 		visitor.init();
