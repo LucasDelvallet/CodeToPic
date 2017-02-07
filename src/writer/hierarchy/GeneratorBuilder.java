@@ -27,14 +27,20 @@ public class GeneratorBuilder {
 			File[] childs = file.listFiles();
 			
 			for(File child : childs) {
-				generator.addChild(getProjectGenerator(child, convertor, targetFolder));
+				CircleViewGenerator circleViewGenerator = getProjectGenerator(child, convertor, targetFolder);
+				if(circleViewGenerator != null) generator.addChild(circleViewGenerator);
 			}
 			
 			return generator;
 		} else {
-			FileInputStream in = new FileInputStream(file.getAbsolutePath());
-			CompilationUnit cu = JavaParser.parse(in);
-			return getFileGenerator(file.getAbsolutePath(), convertor, targetFolder, cu);
+			if(file.getName().contains(".java")) {
+				FileInputStream in = new FileInputStream(file.getAbsolutePath());
+				CompilationUnit cu = JavaParser.parse(in);
+				return getFileGenerator(file.getAbsolutePath(), convertor, targetFolder, cu);
+			} else {
+				return null;
+			}
+			
 		}
 	}
 

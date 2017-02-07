@@ -14,9 +14,9 @@ public class FileToBytes extends ToBytes {
 
 	@Override
 	public byte[] getBytes() throws IOException {
-		File jarFile = new File(path);
+		File file = new File(path);
 		
-		if(jarFile.exists()) {
+		if(file.exists()) {
 			return Files.readAllBytes(Paths.get(path));
 		} else {
 			throw new FileNotFoundException();

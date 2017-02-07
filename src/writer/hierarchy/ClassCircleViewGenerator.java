@@ -22,6 +22,11 @@ public class ClassCircleViewGenerator extends CircleViewGenerator implements IHi
 		int red = 0, green = 0, blue = 0;
 		try {
 			digest = MessageDigest.getInstance("SHA-256");
+			
+			if(metric.getName() == null) {
+				return new RGB(0,0,0);
+			}
+			
 			byte[] hash = digest.digest(metric.getName().getBytes(StandardCharsets.UTF_8));
 			red = hash[0];
 			green = hash[15];
