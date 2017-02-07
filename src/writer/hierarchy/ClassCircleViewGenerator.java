@@ -4,11 +4,8 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import com.github.javaparser.ast.CompilationUnit;
-
 import reader.ToBytes;
 import util.RGB;
-import writer.hierarchy.visitors.ClassLevelVisitor;
 import writer.hierarchy.visitors.metrics.ClassMetric;
 
 public class ClassCircleViewGenerator extends CircleViewGenerator implements IHierarchyView {
@@ -51,6 +48,11 @@ public class ClassCircleViewGenerator extends CircleViewGenerator implements IHi
 			childrenSize += child.getNumberOfLines();
 		}
 		return metric.getNumberOfLine() - childrenSize;
+	}
+
+	@Override
+	public String getName() {
+		return metric.getName();
 	}
 
 }

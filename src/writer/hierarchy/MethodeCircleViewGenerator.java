@@ -38,4 +38,9 @@ public class MethodeCircleViewGenerator extends CircleViewGenerator implements I
 		return metric.getNumberOfLine();
 	}
 
+	@Override
+	public String getName() {
+		return metric.getName();
+	}
+
 }

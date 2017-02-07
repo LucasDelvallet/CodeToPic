@@ -1,6 +1,7 @@
 package writer.hierarchy.visitors.metrics;
 
 public class MethodMetric {
+	String name;
 	int numberOfLine, cyclomaticComplexity, nbOfParameters;
 
 	public int getNbOfParameters() {
@@ -25,5 +26,13 @@ public class MethodMetric {
 	
 	public int getCyclomaticComplexity() {
 		return this.cyclomaticComplexity;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

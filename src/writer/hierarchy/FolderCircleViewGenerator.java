@@ -24,4 +24,9 @@ public class FolderCircleViewGenerator extends CircleViewGenerator implements IH
 		return 0;
 	}
 
+	@Override
+	public String getName() {
+		return fileName;
+	}
+
 }
