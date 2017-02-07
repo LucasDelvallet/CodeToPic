@@ -109,7 +109,7 @@ public abstract class CircleViewGenerator extends Generator implements IHierarch
 	
 	private void addStyle(Element root, Document doc) {
 		Element style = doc.createElementNS(SVGDOMImplementation.SVG_NAMESPACE_URI, "style");
-		style.setTextContent("circle:hover{opacity:0.5;}");
+		style.setTextContent("circle:hover{opacity:0.7;}");
 		root.appendChild(style);
 	}
 
