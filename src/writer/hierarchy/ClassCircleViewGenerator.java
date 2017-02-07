@@ -35,10 +35,10 @@ public class ClassCircleViewGenerator extends CircleViewGenerator implements IHi
 
 	@Override
 	public RGB getBackgroundColor() {
-		int red, green;
+		int red, blue;
 		red = (int)((metric.getNumberOfVariableDeclaration() / (float)metric.getNumberOfLine()) * 255);
-		green = (int)((metric.getNumberOfMethode() / (float) metric.getNumberOfLine()) * 255);
-		return new RGB(red, green, 255);
+		blue = (int)((metric.getNumberOfMethode() / (float) metric.getNumberOfLine()) * 255);
+		return new RGB(red, 255, blue);
 	}
 
 	@Override

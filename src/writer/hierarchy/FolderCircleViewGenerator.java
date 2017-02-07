@@ -11,7 +11,7 @@ public class FolderCircleViewGenerator extends CircleViewGenerator implements IH
 
 	@Override
 	public RGB getStrokeColor() {
-		return new RGB(0, 255, 0);
+		return new RGB(0, 0, 0);
 	}
 
 	@Override

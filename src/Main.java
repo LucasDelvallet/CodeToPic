@@ -8,7 +8,7 @@ import writer.hierarchy.GeneratorBuilder;
 public class Main {
 
 	public static void main(String[] args) throws Exception {
-		String path = "src/reader/";
+		String path = "src/util/";
 		ToBytes coder = new FileToBytes(path);
 		CircleViewGenerator generator = GeneratorBuilder.getProjectGenerator(path, coder, "target/image");
 		try {
