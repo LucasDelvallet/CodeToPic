@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
+import com.github.javaparser.ast.body.ConstructorDeclaration;
 import com.github.javaparser.ast.body.EnumDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.VariableDeclarator;
@@ -60,6 +61,19 @@ public class ClassLevelVisitor extends LevelVisitor {
 	
 	@Override
 	public void visit(MethodDeclaration arg0, Void arg1) {		
+		cyclomaticMethodCounter = 0;
+		numberOfMethode ++;
+		MethodMetric mMetric = new MethodMetric();
+		mMetric.setNumberOfLine(arg0.getEnd().get().line - arg0.getBegin().get().line + 1);
+		mMetric.setNbOfParameters(arg0.getParameters().size());
+		mMetric.setName(arg0.getName().toString());
+		super.visit(arg0, arg1);
+		mMetric.setCyclomaticComplexity(cyclomaticMethodCounter);		
+		methodsMetric.add(mMetric);
+	}
+	
+	@Override
+	public void visit(ConstructorDeclaration arg0, Void arg1) {
 		cyclomaticMethodCounter = 0;
 		numberOfMethode ++;
 		MethodMetric mMetric = new MethodMetric();
