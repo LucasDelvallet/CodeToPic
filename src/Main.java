@@ -5,10 +5,10 @@ import hierarchyView.generator.CircleViewGenerator;
 
 public class Main {
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 		String path = "src/";
-		CircleViewGenerator generator = GeneratorBuilder.getProjectGenerator(path, "target/image");
 		try {
+			CircleViewGenerator generator = GeneratorBuilder.getProjectGenerator(path, "target/image");
 			generator.generate();
 		} catch (IOException e) {
 			e.printStackTrace();

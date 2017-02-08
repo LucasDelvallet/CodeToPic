@@ -3,8 +3,6 @@ package hierarchyView;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import util.RGB;
-
 public interface IHierarchyView {
 	public void addChild(IHierarchyView view);
 	public RGB getStrokeColor();

@@ -4,7 +4,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.security.cert.Extension;
 import java.util.ArrayList;
 
 import org.apache.batik.anim.dom.SVGDOMImplementation;
@@ -19,7 +18,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import hierarchyView.IHierarchyView;
-import util.RGB;
+import hierarchyView.RGB;
 
 public abstract class CircleViewGenerator extends Generator implements IHierarchyView {
 	protected ArrayList<IHierarchyView> children;

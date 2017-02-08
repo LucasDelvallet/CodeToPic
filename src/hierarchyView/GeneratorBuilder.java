@@ -22,37 +22,43 @@ public class GeneratorBuilder {
 		return getProjectGenerator(file, targetFolder);
 	}
 
-	private static CircleViewGenerator getProjectGenerator(File file, String targetFolder)
-			throws FileNotFoundException {
+	private static CircleViewGenerator getProjectGenerator(File file, String targetFolder) throws FileNotFoundException {
 		if (file.isDirectory()) {
-			CircleViewGenerator generator = new FolderCircleViewGenerator(file.getAbsolutePath(), targetFolder);
-			File[] childs = file.listFiles();
-			
-			for(File child : childs) {
-				CircleViewGenerator circleViewGenerator = getProjectGenerator(child, targetFolder);
-				if(circleViewGenerator != null) generator.addChild(circleViewGenerator);
-			}
-			
-			return generator;
+			return getFolderGenerator(file, targetFolder);
 		} else {
-			if(file.getName().contains(".java")) {
-				FileInputStream in = new FileInputStream(file.getAbsolutePath());
-				CompilationUnit cu = JavaParser.parse(in);
-				return getFileGenerator(file.getAbsolutePath(), targetFolder, cu);
-			} else {
-				return null;
-			}
-			
+			return getJavaFileGenerator(file, targetFolder);
+		}
+	}
+	
+	private static FolderCircleViewGenerator getFolderGenerator(File file, String targetFolder) throws FileNotFoundException {
+		FolderCircleViewGenerator generator = new FolderCircleViewGenerator(file.getAbsolutePath(), targetFolder);
+		File[] childs = file.listFiles();
+
+		for (File child : childs) {
+			CircleViewGenerator circleViewGenerator = getProjectGenerator(child, targetFolder);
+			if (circleViewGenerator != null)
+				generator.addChild(circleViewGenerator);
+		}
+
+		return generator;
+	}
+	
+	private static ClassCircleViewGenerator getJavaFileGenerator(File file, String targetFolder) throws FileNotFoundException {
+		if (file.getName().endsWith(".java")) {
+			return getFileGenerator(file.getAbsolutePath(), targetFolder);
+		} else {
+			return null;
 		}
 	}
 
-	private static CircleViewGenerator getFileGenerator(String filePath, String targetFolder,
-			CompilationUnit cu) {
+	private static ClassCircleViewGenerator getFileGenerator(String filePath, String targetFolder) throws FileNotFoundException {
+		FileInputStream in = new FileInputStream(filePath);
+		CompilationUnit cu = JavaParser.parse(in);
 		ClassLevelVisitor visitor = new ClassLevelVisitor(cu);
 		visitor.init();
 		ClassMetric metric = visitor.getClassMetric();
 
-		CircleViewGenerator fileGenerator = new ClassCircleViewGenerator(filePath, targetFolder, metric);
+		ClassCircleViewGenerator fileGenerator = new ClassCircleViewGenerator(filePath, targetFolder, metric);
 
 		for (MethodMetric methodMetric : metric.getMethodsMetric()) {
 			MethodeCircleViewGenerator mGenerator = new MethodeCircleViewGenerator(filePath, targetFolder,
