@@ -36,8 +36,12 @@ public class ClassCircleViewGenerator extends CircleViewGenerator implements IHi
 			green += color.getGreen();
 			blue += color.getBlue();
 		}
-
-		return new RGB((int) red / childrenSize, (int) green / childrenSize, (int) blue / childrenSize);
+		
+		if(childrenSize > 0) {
+			return new RGB((int) red / childrenSize, (int) green / childrenSize, (int) blue / childrenSize);
+		} else {
+			return new RGB(0, 255, 0);
+		}
 	}
 
 	@Override
