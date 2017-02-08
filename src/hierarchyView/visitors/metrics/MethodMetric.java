@@ -1,4 +1,4 @@
-package writer.hierarchy.visitors.metrics;
+package hierarchyView.visitors.metrics;
 
 public class MethodMetric {
 	String name;

@@ -1,4 +1,4 @@
-package writer.hierarchy.visitors.metrics;
+package hierarchyView.visitors.metrics;
 
 import java.util.ArrayList;
 import java.util.List;

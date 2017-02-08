@@ -1,18 +1,15 @@
 import java.io.IOException;
 
-import reader.FileToBytes;
-import reader.ToBytes;
-import writer.hierarchy.CircleViewGenerator;
-import writer.hierarchy.GeneratorBuilder;
+import hierarchyView.GeneratorBuilder;
+import hierarchyView.generator.CircleViewGenerator;
 
 public class Main {
 
 	public static void main(String[] args) throws Exception {
 		String path = "src/";
-		ToBytes coder = new FileToBytes(path);
-		CircleViewGenerator generator = GeneratorBuilder.getProjectGenerator(path, coder, "target/image");
+		CircleViewGenerator generator = GeneratorBuilder.getProjectGenerator(path, "target/image");
 		try {
-			generator.generate(null);
+			generator.generate();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -1,12 +1,12 @@
-package writer.hierarchy;
+package hierarchyView.generator;
 
-import reader.ToBytes;
+import hierarchyView.IHierarchyView;
 import util.RGB;
 
 public class FolderCircleViewGenerator extends CircleViewGenerator implements IHierarchyView {
 
-	public FolderCircleViewGenerator(ToBytes convertor, String targetFolder) {
-		super(convertor, targetFolder);
+	public FolderCircleViewGenerator(String originFile, String targetFolder) {
+		super(originFile, targetFolder);
 	}
 
 	@Override
@@ -26,7 +26,7 @@ public class FolderCircleViewGenerator extends CircleViewGenerator implements IH
 
 	@Override
 	public String getName() {
-		return fileName;
+		return originFileName;
 	}
 
 }
