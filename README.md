@@ -6,7 +6,7 @@ School project. Code smells visualizer.
 
 This is the generated code smell visualization for this projet.
 
-<a href="https://raw.githubusercontent.com/DelvalletQuentin/CodeToPic/master/readme/codeToPic.svg">
+<a href="https://github.com/DelvalletQuentin/CodeToPic/blob/master/readme/codeToPic.svg">
 <img src="https://raw.githubusercontent.com/DelvalletQuentin/CodeToPic/master/readme/CodeToPic.png" alt="Visualization example" class="image mod-full-width" />
 </a>
 
@@ -17,7 +17,7 @@ This is a png, you can click on the picture to access the svg file.
 Given a project path, our code in hierarchyView.visitors takes advantage of <a href="https://github.com/javaparser/javaparser">Javaparser</a> to analyse java code. We search for some code smells and compile the metrics into objects representing classes and methods.
 
 From that, we use the <a href="https://xmlgraphics.apache.org/batik/">Apache Batik library</a> 
-to create svg elements for each classes and methods. We put then in place so it represents the project. 
+to create svg elements for each classes and methods. Then, we put them in place so it represents the project. 
 
 ## Circles, colors, what does it means?
 
