@@ -6,8 +6,8 @@ School project. Code smells visualizer.
 
 This is the generated code smell visualization for this projet.
 
-<a href="https://raw.githubusercontent.com/DelvalletQuentin/CodeToPic/master/readme/CodeToPic.svg">
-<img src="https://raw.githubusercontent.com/DelvalletQuentin/CodeToPic/master/readme/codeToPic.png" alt="Visualization example" class="image mod-full-width" />
+<a href="https://raw.githubusercontent.com/DelvalletQuentin/CodeToPic/master/readme/codeToPic.svg">
+<img src="https://raw.githubusercontent.com/DelvalletQuentin/CodeToPic/master/readme/CodeToPic.png" alt="Visualization example" class="image mod-full-width" />
 </a>
 
 This is a png, you can click on the picture to access the svg file.
