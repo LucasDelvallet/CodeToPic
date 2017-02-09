@@ -1,0 +1,275 @@
+
+<svg contentScriptType="text/ecmascript" width="763"
+     xmlns:xlink="http://www.w3.org/1999/xlink" zoomAndPan="magnify"
+     contentStyleType="text/css" height="763"
+     preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+     onload="init(evt)" version="1.0">
+    <circle fill="rgb(255,255,255)" onmouseout="HideTooltip()" r="381.5"
+            cx="381.5" id="1" cy="381.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,0)" name="inferenceUT-master"/>
+    <circle fill="rgb(255,255,255)" onmouseout="HideTooltip()" r="22.5"
+            cx="22.5" id="2" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,0)" name="res"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="22.5" cx="22.5"
+            id="3" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(10,0,244)" name="TestParamCalcul"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="1.5" cx="1.5"
+            id="4" cy="383.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="TestParamCalcul"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="3.5" cx="6.5"
+            id="5" cy="383.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="params"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="3.0" cx="13.0"
+            id="6" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="isValidPhoneNumberNumberTest"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="3.0" cx="19.0"
+            id="7" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="TestDoFunct"/>
+    <circle fill="rgb(255,255,255)" onmouseout="HideTooltip()" r="78.0"
+            cx="123.0" id="8" cy="381.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,0)" name="spooned"/>
+    <circle fill="rgb(255,255,255)" onmouseout="HideTooltip()" r="65.0"
+            cx="110.0" id="9" cy="381.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,0)" name="main"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="12.0" cx="57.0"
+            id="10" cy="381.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(21,0,234)" name="Calcul"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="1.0" cx="46.0"
+            id="11" cy="381.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="Calcul"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="2.0" cx="49.0"
+            id="12" cy="381.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="setFact"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="1.5" cx="52.5"
+            id="13" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="getFact"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="1.5" cx="55.5"
+            id="14" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="doFunct"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="5.5" cx="74.5"
+            id="15" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="Main"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="2.0" cx="71.0"
+            id="16" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="main"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="12.5" cx="92.5"
+            id="17" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(14,0,241)" name="ParamIsValidPhoneNumberNumberTest"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="1.5" cx="81.5"
+            id="18" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="ParamIsValidPhoneNumberNumberTest"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="2.0" cx="85.0"
+            id="19" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="params"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="3.0" cx="90.0"
+            id="20" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="isValidPhoneNumberNumberTest"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="12.5" cx="117.5"
+            id="21" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(14,0,241)" name="ParamTestDoFunct"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="1.5" cx="106.5"
+            id="22" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="ParamTestDoFunct"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="2.0" cx="110.0"
+            id="23" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="params"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="3.0" cx="115.0"
+            id="24" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="TestDoFunct"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="6.5" cx="136.5"
+            id="25" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="TestCalcul"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="3.0" cx="133.0"
+            id="26" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="TestDoFunct"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="16.0" cx="159.0"
+            id="27" cy="381.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(10,0,244)" name="TestParamCalcul"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="1.5" cx="144.5"
+            id="28" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="TestParamCalcul"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="2.0" cx="148.0"
+            id="29" cy="381.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="params"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="3.0" cx="153.0"
+            id="30" cy="381.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="isValidPhoneNumberNumberTest"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="3.0" cx="159.0"
+            id="31" cy="381.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="TestDoFunct"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="6.5" cx="181.5"
+            id="32" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="ParamIsValidPhoneNumberNumberTest"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="3.0" cx="178.0"
+            id="33" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="isValidPhoneNumberNumberTest"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="6.5" cx="194.5"
+            id="34" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="ParamTestDoFunct"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="3.0" cx="191.0"
+            id="35" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="TestDoFunct"/>
+    <circle fill="rgb(255,255,255)" onmouseout="HideTooltip()" r="262.0"
+            cx="463.0" id="36" cy="381.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,0)" name="src"/>
+    <circle fill="rgb(255,255,255)" onmouseout="HideTooltip()" r="37.0"
+            cx="238.0" id="37" cy="381.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,0)" name="main"/>
+    <circle fill="rgb(38,217,0)" onmouseout="HideTooltip()" r="37.0" cx="238.0"
+            id="38" cy="381.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(63,0,191)" name="Main"/>
+    <circle fill="rgb(25,230,0)" onmouseout="HideTooltip()" r="14.5" cx="215.5"
+            id="39" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="main"/>
+    <circle fill="rgb(51,204,0)" onmouseout="HideTooltip()" r="7.0" cx="237.0"
+            id="40" cy="381.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(85,0,170)" name="createNewTestFiles"/>
+    <circle fill="rgb(255,255,255)" onmouseout="HideTooltip()" r="75.5"
+            cx="350.5" id="41" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,0)" name="processor"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="9.5" cx="284.5"
+            id="42" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="LiteralProcessor"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="2.5" cx="277.5"
+            id="43" cy="383.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="process"/>
+    <circle fill="rgb(68,187,0)" onmouseout="HideTooltip()" r="66.0" cx="360.0"
+            id="44" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="TestClassProcessor"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="1.5" cx="295.5"
+            id="45" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="TestClassProcessor"/>
+    <circle fill="rgb(153,102,0)" onmouseout="HideTooltip()" r="23.0" cx="320.0"
+            id="46" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="process"/>
+    <circle fill="rgb(51,204,0)" onmouseout="HideTooltip()" r="17.0" cx="360.0"
+            id="47" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="testMethod"/>
+    <circle fill="rgb(255,255,255)" onmouseout="HideTooltip()" r="149.5"
+            cx="575.5" id="48" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,0)" name="utils"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="9.5" cx="435.5"
+            id="49" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="Literal"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="2.0" cx="428.0"
+            id="50" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="Literal"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="1.5" cx="431.5"
+            id="51" cy="383.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="getCodeInitVariable"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="22.0" cx="467.0"
+            id="52" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="Method"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="1.5" cx="446.5"
+            id="53" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="Method"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="1.5" cx="449.5"
+            id="54" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="getName"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="3.5" cx="454.5"
+            id="55" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="tranformMethod"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="1.5" cx="459.5"
+            id="56" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="getLiteral"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="1.5" cx="462.5"
+            id="57" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="toString"/>
+    <circle fill="rgb(15,239,0)" onmouseout="HideTooltip()" r="81.0" cx="570.0"
+            id="58" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(11,0,243)" name="ParamTestFile"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="2.5" cx="491.5"
+            id="59" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(85,0,170)" name="ParamTestFile"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="2.0" cx="496.0"
+            id="60" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="getFileName"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="2.5" cx="500.5"
+            id="61" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="getPackageCode"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="3.5" cx="506.5"
+            id="62" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="getImportCode"/>
+    <circle fill="rgb(25,230,0)" onmouseout="HideTooltip()" r="4.0" cx="514.0"
+            id="63" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="getVariableInitCode"/>
+    <circle fill="rgb(51,204,0)" onmouseout="HideTooltip()" r="6.5" cx="524.5"
+            id="64" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="getVariableParamCode"/>
+    <circle fill="rgb(25,230,0)" onmouseout="HideTooltip()" r="4.0" cx="535.0"
+            id="65" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="getVariableAssignCode"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="1.5" cx="540.5"
+            id="66" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="getVariableName"/>
+    <circle fill="rgb(76,179,0)" onmouseout="HideTooltip()" r="15.0" cx="557.0"
+            id="67" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="getVariables"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="2.5" cx="574.5"
+            id="68" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="getConstructorCode"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="3.0" cx="580.0"
+            id="69" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="getParamCode"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="2.0" cx="585.0"
+            id="70" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="getClasseCode"/>
+    <circle fill="rgb(51,204,0)" onmouseout="HideTooltip()" r="5.0" cx="592.0"
+            id="71" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="getNewMethodCode"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="6.0" cx="603.0"
+            id="72" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="getFileCode"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="1.5" cx="610.5"
+            id="73" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="getFile"/>
+    <circle fill="rgb(44,210,0)" onmouseout="HideTooltip()" r="27.0" cx="678.0"
+            id="74" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(31,0,223)" name="ValueGenerator"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="1.5" cx="652.5"
+            id="75" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="ValueGenerator"/>
+    <circle fill="rgb(51,204,0)" onmouseout="HideTooltip()" r="6.5" cx="660.5"
+            id="76" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="getValues"/>
+    <circle fill="rgb(51,204,0)" onmouseout="HideTooltip()" r="6.0" cx="673.0"
+            id="77" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="getObject"/>
+    <circle fill="rgb(76,179,0)" onmouseout="HideTooltip()" r="7.0" cx="686.0"
+            id="78" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="getIntMaxObject"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="10.0" cx="715.0"
+            id="79" cy="382.0" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="Variable"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="1.5" cx="706.5"
+            id="80" cy="382.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="Variable"/>
+    <circle fill="rgb(255,255,255)" onmouseout="HideTooltip()" r="19.0"
+            cx="744.0" id="81" cy="381.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,0)" name="test"/>
+    <circle fill="rgb(255,255,255)" onmouseout="HideTooltip()" r="19.0"
+            cx="744.0" id="82" cy="381.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,0)" name="main"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="19.0" cx="744.0"
+            id="83" cy="381.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(14,0,241)" name="AppTest"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="2.0" cx="727.0"
+            id="84" cy="381.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(42,0,213)" name="AppTest"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="2.0" cx="731.0"
+            id="85" cy="381.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="suite"/>
+    <circle fill="rgb(0,255,0)" onmouseout="HideTooltip()" r="2.0" cx="735.0"
+            id="86" cy="381.5" onmousemove="ShowTooltip(evt)"
+            stroke="rgb(0,0,255)" name="testApp"/>
+    <style xml:space="preserve">circle:hover{opacity:0.7;} .tooltip{font-size: 12px;} .tooltip_bg{fill: white;stroke: black;stroke-width: 1;opacity: 0.85;}</style><script xlink:actuate="onLoad"
+            xlink:type="simple" xlink:show="other" type="text/ecmascript"
+            xmlns:xlink="http://www.w3.org/1999/xlink"><![CDATA[function init(evt) {if ( window.svgDocument == null ) {svgDocument = evt.target.ownerDocument;}tooltip = svgDocument.getElementById('tooltip');tooltip_bg = svgDocument.getElementById('tooltip_bg');}function ShowTooltip(evt) {tooltip.setAttributeNS(null,"x",evt.clientX+12+window.pageXOffset);tooltip.setAttributeNS(null,"y",evt.clientY+28+window.pageYOffset);tooltip.setAttributeNS(null,"visibility","visible");tooltip.firstChild.data = evt.target.getAttributeNS(null,"name");length = tooltip.getComputedTextLength();tooltip_bg.setAttributeNS(null,"width",length+8);tooltip_bg.setAttributeNS(null,"x",evt.clientX+8+window.pageXOffset);tooltip_bg.setAttributeNS(null,"y",evt.clientY+16+window.pageYOffset);tooltip_bg.setAttributeNS(null,"visibility","visible");}function HideTooltip() {tooltip.setAttributeNS(null,"visibility","hidden");tooltip_bg.setAttributeNS(null,"visibility","hidden");}]]>
+    </script>
+    <rect x="0" y="0" width="52" visibility="hidden" rx="4" class="tooltip_bg"
+          height="16" ry="4" id="tooltip_bg"/>
+    <text fill="black" x="0" y="0" id="tooltip" visibility="hidden"
+          class="tooltip">
+        Tooltip
+    </text>
+</svg>
