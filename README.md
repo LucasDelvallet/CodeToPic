@@ -19,6 +19,9 @@ Given a project path, our code in hierarchyView.visitors takes advantage of <a h
 From that, we use the <a href="https://xmlgraphics.apache.org/batik/">Apache Batik library</a> 
 to create svg elements for each classes and methods. Then, we put them in place so it represents the project. 
 
+You can run it with the jar file, the command is:
+	java -jar CodeToPic.jar sourceFile destinationFolder
+
 ## Circles, colors, what does it means?
 
 The generated circles are simple.
