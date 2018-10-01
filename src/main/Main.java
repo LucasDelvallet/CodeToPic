@@ -5,7 +5,6 @@ import hierarchyView.GeneratorBuilder;
 import hierarchyView.generator.CircleViewGenerator;
 
 public class Main {
-
 	public static void main(String[] args) {
 		String origin = args[0], destination = args[1];
 		try {
