@@ -1,6 +1,6 @@
 package hierarchyView.generator;
 
-import hierarchyView.RGB;
+import hierarchyView.util.RGB;
 import hierarchyView.visitors.metrics.ClassMetric;
 
 public class ClassCircleViewGenerator extends CircleViewGenerator {

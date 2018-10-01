@@ -3,7 +3,7 @@ package hierarchyView.generator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import hierarchyView.RGB;
+import hierarchyView.util.RGB;
 
 /**
  * Represent a hierarchic view

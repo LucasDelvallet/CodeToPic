@@ -1,6 +1,6 @@
 package hierarchyView.generator;
 
-import hierarchyView.RGB;
+import hierarchyView.util.RGB;
 
 public class FolderCircleViewGenerator extends CircleViewGenerator {
 
