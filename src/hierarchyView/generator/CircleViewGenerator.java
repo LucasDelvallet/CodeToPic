@@ -173,8 +173,10 @@ public abstract class CircleViewGenerator extends Generator implements IHierarch
 		}
 	}
 
+	/*
+	* Create an SVG document.
+	*/
 	private Document createSVGDocument() {
-		// Create an SVG document.
 		DOMImplementation impl = SVGDOMImplementation.getDOMImplementation();
 		String svgNS = SVGDOMImplementation.SVG_NAMESPACE_URI;
 		return impl.createDocument(svgNS, "svg", null);
