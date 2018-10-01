@@ -9,17 +9,25 @@ public class RGB {
 		this.blue = blue;
 	}
 
+	/*
+	* Get the red value.
+	*/
 	public int getRed() {
 		return red;
 	}
 
+	/*
+	* Get the green value.
+	*/
 	public int getGreen() {
 		return green;
 	}
 
+
+	/*
+	* Get the blue value.
+	*/
 	public int getBlue() {
 		return blue;
 	}
-	
-	
 }
