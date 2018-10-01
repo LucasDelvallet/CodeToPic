@@ -4,13 +4,13 @@ import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
 public class LevelVisitor extends VoidVisitorAdapter<Void> {
-	private CompilationUnit cu;
+	private CompilationUnit compilationUnit;
 	
-	public LevelVisitor(CompilationUnit cu) {
-		this.cu = cu;
+	public LevelVisitor(CompilationUnit compilationUnit) {
+		this.compilationUnit = compilationUnit;
 	}
 	
 	public void init() {
-		visit(cu, null);
+		visit(compilationUnit, null);
 	}
 }
