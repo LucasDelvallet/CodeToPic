@@ -1,7 +1,9 @@
-package hierarchyView;
+package hierarchyView.generator;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+
+import hierarchyView.RGB;
 
 public interface IHierarchyView {
 	public void addChild(IHierarchyView view);
