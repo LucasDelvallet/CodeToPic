@@ -20,6 +20,4 @@ public class RGB {
 	public int getBlue() {
 		return blue;
 	}
-	
-	
 }
