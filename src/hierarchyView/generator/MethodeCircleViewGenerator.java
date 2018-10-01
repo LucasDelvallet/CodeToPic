@@ -33,6 +33,9 @@ public class MethodeCircleViewGenerator extends CircleViewGenerator implements I
 		return new RGB(red, 255-red, 0);
 	}
 
+	/**
+	* This method returns the number of lines.
+	*/
 	@Override
 	public int getNumberOfLines() {
 		return metric.getNumberOfLine();
