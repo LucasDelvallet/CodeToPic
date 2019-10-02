@@ -1,6 +1,5 @@
 package main;
 import java.io.IOException;
-
 import hierarchyView.GeneratorBuilder;
 import hierarchyView.generator.CircleViewGenerator;
 
