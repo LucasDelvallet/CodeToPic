@@ -1,5 +1,4 @@
 package hierarchyView.visitors;
-
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
