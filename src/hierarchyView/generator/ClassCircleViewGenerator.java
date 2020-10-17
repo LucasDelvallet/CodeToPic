@@ -32,7 +32,10 @@ public class ClassCircleViewGenerator extends CircleViewGenerator implements IHi
 
 	@Override
 	public RGB getBackgroundColor() {
-		int red = 0, green = 0, blue = 0, childrenSize = children.size();
+		int red = 0;
+		int green = 0
+		int blue = 0;
+		int childrenSize = children.size();
 
 		for (IHierarchyView child : children) {
 			RGB color = child.getBackgroundColor();
