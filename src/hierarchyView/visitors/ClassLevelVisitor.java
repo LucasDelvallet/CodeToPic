@@ -140,10 +140,10 @@ public class ClassLevelVisitor extends LevelVisitor {
 	}
 	
 	@Override
-    public void visit(IfStmt n, Void arg) {
+    	public void visit(IfStmt n, Void arg) {
 		ifCyclomaticCount(n);
-        super.visit(n, arg);
-    }
+        	super.visit(n, arg);
+    	}
 
     private void ifCyclomaticCount(IfStmt n) {
     	cyclomaticMethodCounter++;
