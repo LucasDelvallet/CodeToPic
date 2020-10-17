@@ -1,4 +1,4 @@
-package hierarchyView;
+package hierarchyView.util;
 
 public class RGB {
 	private int red, green, blue;

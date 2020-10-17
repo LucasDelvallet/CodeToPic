@@ -1,4 +1,4 @@
-package hierarchyView;
+package hierarchyView.generator;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,10 +7,6 @@ import java.io.FileNotFoundException;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 
-import hierarchyView.generator.CircleViewGenerator;
-import hierarchyView.generator.ClassCircleViewGenerator;
-import hierarchyView.generator.FolderCircleViewGenerator;
-import hierarchyView.generator.MethodeCircleViewGenerator;
 import hierarchyView.visitors.ClassLevelVisitor;
 import hierarchyView.visitors.metrics.ClassMetric;
 import hierarchyView.visitors.metrics.MethodMetric;

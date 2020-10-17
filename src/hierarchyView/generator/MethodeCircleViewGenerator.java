@@ -1,10 +1,9 @@
 package hierarchyView.generator;
 
-import hierarchyView.IHierarchyView;
-import hierarchyView.RGB;
+import hierarchyView.util.RGB;
 import hierarchyView.visitors.metrics.MethodMetric;
 
-public class MethodeCircleViewGenerator extends CircleViewGenerator implements IHierarchyView {
+public class MethodeCircleViewGenerator extends CircleViewGenerator {
 	private MethodMetric metric;
 
 	public MethodeCircleViewGenerator(String originFile, String targetFolder, MethodMetric metric) {

@@ -2,6 +2,7 @@ package main;
 import java.io.IOException;
 import hierarchyView.GeneratorBuilder;
 import hierarchyView.generator.CircleViewGenerator;
+import hierarchyView.generator.GeneratorBuilder;
 
 public class Main {
 	public static void main(String[] args) {

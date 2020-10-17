@@ -1,9 +1,8 @@
 package hierarchyView.generator;
 
-import hierarchyView.IHierarchyView;
-import hierarchyView.RGB;
+import hierarchyView.util.RGB;
 
-public class FolderCircleViewGenerator extends CircleViewGenerator implements IHierarchyView {
+public class FolderCircleViewGenerator extends CircleViewGenerator {
 
 	public FolderCircleViewGenerator(String originFile, String targetFolder) {
 		super(originFile, targetFolder);
