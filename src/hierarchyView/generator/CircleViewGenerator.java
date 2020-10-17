@@ -17,7 +17,6 @@ import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import hierarchyView.IHierarchyView;
 import hierarchyView.RGB;
 
 public abstract class CircleViewGenerator extends Generator implements IHierarchyView {
