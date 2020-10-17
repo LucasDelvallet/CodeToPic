@@ -52,17 +52,16 @@ public class GeneratorBuilder {
 	}
 
 	private static ClassCircleViewGenerator getFileGenerator(String filePath, String targetFolder) throws FileNotFoundException {
-		FileInputStream in = new FileInputStream(filePath);
-		CompilationUnit cu = JavaParser.parse(in);
-		ClassLevelVisitor visitor = new ClassLevelVisitor(cu);
+		FileInputStream inputStream = new FileInputStream(filePath);
+		CompilationUnit compilationUnit = JavaParser.parse(inputStream);
+		ClassLevelVisitor visitor = new ClassLevelVisitor(compilationUnit);
 		visitor.init();
 		ClassMetric metric = visitor.getClassMetric();
 
 		ClassCircleViewGenerator fileGenerator = new ClassCircleViewGenerator(filePath, targetFolder, metric);
 
 		for (MethodMetric methodMetric : metric.getMethodsMetric()) {
-			MethodeCircleViewGenerator mGenerator = new MethodeCircleViewGenerator(filePath, targetFolder,
-					methodMetric);
+			MethodeCircleViewGenerator mGenerator = new MethodeCircleViewGenerator(filePath, targetFolder, methodMetric);
 			fileGenerator.addChild(mGenerator);
 		}
 
