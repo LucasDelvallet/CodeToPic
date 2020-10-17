@@ -2,6 +2,7 @@ package hierarchyView.generator;
 
 import hierarchyView.util.RGB;
 import hierarchyView.visitors.metrics.MethodMetric;
+import java.lang.*;
 
 public class MethodeCircleViewGenerator extends CircleViewGenerator {
 	private MethodMetric metric;
@@ -14,9 +15,7 @@ public class MethodeCircleViewGenerator extends CircleViewGenerator {
 	@Override
 	public RGB getStrokeColor() {
 		int red = (int)(metric.getNbOfParameters() * 42.5f);
-		if(red > 255) {
-			red = 255;
-		}
+		red = Math.min(red, 255);
 		return new RGB(red, 0, 255-red);
 	}
 
